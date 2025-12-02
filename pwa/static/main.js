@@ -8,3 +8,5 @@ document.getElementById("load-sw").addEventListener("click", async () => {
     }
   }
 });
+
+//this file utilises magic to lazy load the service worker
