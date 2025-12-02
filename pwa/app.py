@@ -5,3 +5,5 @@ app = Flask(__name__)
 @app.route('/sw.js')
 def service_worker():
     return send_from_directory('static', 'sw.js')
+
+#creates a route for the service worker to follow
