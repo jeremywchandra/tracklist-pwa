@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="icon" href="/static/favicon.png" />
+  <meta charset="UTF-8" />
+  <title>Tracks Inside Europe</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <h1>European Tracks</h1>
+
+  <div class="trackinfo">
+    <div id="track-container">
+      {%for track in tracks%}
+      <div class="track {% if loop.first %}active{% endif %}">
+        <h1>{{ track['name'] }}</h1>
+        <img src="{{ track['map'] }}">
+        <p>Length: {{ track['length'] }}km</p>
+        <p>Corners: {{ track['corners'] }}</p>
+        <p>Country: {{ track['country']}}</p>
+        <p>Founded in: {{track['founded']}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <button id="next-btn">Next track</button>
+
+  <script>
+    const tracks = document.querySelectorAll(".track");
+    let currentIndex = 0;
+    document.getElementById("next-btn").addEventListener("click", () => {
+      tracks[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % tracks.length;
+      tracks[currentIndex].classList.add("active");
+    });
+  </script>
+      <a class="btn2" href="/index"
+    ><img src="static/images/backbuttonnobackground.png"</a
+</body>
+
+<style>
+  .track {
+    display: none;
+  }
+  .track.active {
+    display: block;
+  }
+</style>

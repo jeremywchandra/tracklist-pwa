@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link href="static/styles.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <button id=""load-sw">Load service worker</button>
+  <script? src="/static/main.js"></script>
+  <div class="container">
+    <div class="hero">
+      <h1>Track List Union</h1>
+      <p>Welcome to The World's Premier Track Database.</p>
+    </div>
+    <div class="logo">
+      <img src="static/images/logo.svg" loading="lazy" alt="" />
+    </div>
+  </div>
+  <div class="europe">
+    <img src="static/images/the_black_plaguenobg.png" loading="lazy" alt="" />
+  </div>
+
+  <a class="btn" href="/europe"
+    ><img src="static/images/europebuttonnobackground.png"</a
+  >
+</body>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) =>
+          console.log("Service Worker registered:", registration)
+        )
+        .catch((error) =>
+          console.error("Service Worker registration failed:", error)
+        );
+    });
+  }
+</script>
