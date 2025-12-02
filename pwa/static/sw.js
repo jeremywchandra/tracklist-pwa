@@ -38,6 +38,8 @@ const appShellFiles = [
   "pwa/static/images/trackmaps/zandvoort.png",
 ];
 
+//This file defines events that the service worker is capable of doing and defines the files that the service worker downloads for when you're offline
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(pwa).then((cache) => {
@@ -53,3 +55,4 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
