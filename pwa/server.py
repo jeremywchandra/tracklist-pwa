@@ -15,7 +15,7 @@ def get_tracks(): #This function utilises magic to get the info from the databas
     conn.close()
     return tracks
 
-@app.route('/europe_catalogue')
+@app.route('/europe_catalogue') #this portion of code creates routes for the different html pages of the website so that they actually redirect to the page instead of resetting to the index which i didn't realise had to be done for about 4 hours of painful struggling
 def europe_catalogue():
     tracks = get_tracks()
     return render_template('europe_catalogue.html', tracks=tracks)
